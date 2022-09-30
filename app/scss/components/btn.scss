@@ -1,0 +1,55 @@
+@use '../util' as *;
+
+.btn_flex{
+    display: flex;
+    @include breakpoint-down(xxsmall){
+        margin-top: -1rem;
+    }
+}
+
+.btn{
+    border: 0.185rem solid var(--blue);
+    padding: 0.4rem 2rem;
+    border-radius: 0.3rem;
+    background-color: var(--blue);
+    color: var(--white);
+    @include breakpoint-down(large){
+        font-size: 1rem;
+    }
+    @include breakpoint-down(xmedium){
+        font-size: 0.8rem;
+    }
+    &--blue{
+        border-radius: rem(35) rem(5) 0 0;
+        @include breakpoint-down(xxsmall){
+            padding: rem(8);
+            margin-right: 0.8rem;
+        }
+    }
+    &_circle{
+        border-radius: 50%;
+        width: rem(40);
+        height: rem(40);
+        margin-left: rem(-23);
+        background-color: var(--white);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.35);
+        @include breakpoint-down(small){
+            width: rem(38);
+            height: rem(38);
+        }
+        img{
+            width: 100%;
+            height: rem(40);
+            padding: 0.5rem;
+            @include breakpoint-down(small){
+                height: rem(38);
+            }
+        }
+    }
+    &--center{
+        justify-self: center;
+        @include breakpoint-down(small){
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+@use '../util' as *;
+
+.container {
+    max-width: rem(1300);
+    margin: 0 auto;
+    padding: 0 rem(100);
+
+    @include breakpoint-down(medium) {
+        padding: 0 rem(80);
+    }
+    @include breakpoint-down(tablet) {
+        padding: 0 rem(50);
+    }
+    @include breakpoint-down(mobile) {
+        padding: 0 rem(30);
+    }
+}
+.content {
+    max-width: rem(1300);
+    margin: 0 auto;
+    padding: 0 rem(100);
+
+    @include breakpoint-down(medium) {
+        padding: 0 rem(80);
+    }
+    @include breakpoint-down(tablet) {
+        padding: 0 rem(50);
+    }
+    @include breakpoint-down(mobile) {
+        padding: 0 rem(30);
+    }
+}
+.containers {
+    max-width: rem(1300);
+    margin: 0 auto;
+    padding: 0 rem(100);
+
+    @include breakpoint-down(medium) {
+        padding: 0 rem(80);
+    }
+    @include breakpoint-down(tablet) {
+        padding: 0 rem(50);
+    }
+    @include breakpoint-down(mobile) {
+        padding: 0 rem(30);
+    }
+}

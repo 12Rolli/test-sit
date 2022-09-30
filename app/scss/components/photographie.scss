@@ -1,0 +1,395 @@
+@use '../util' as *;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+.audiovisuelslider {
+    height: 95vh;
+    width: 100%;
+    position: relative;
+
+    &__img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+
+    &__img.shown {
+        opacity: 1;
+    }
+
+    &__manualbtn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+
+        @include breakpoint-down(mobile) {
+            display: none;
+        }
+
+        &--next {
+            right: 5rem;
+
+            @include breakpoint-down(extrasmall) {
+                right: 2rem;
+            }
+        }
+        &--preview {
+            left: 5rem;
+
+            @include breakpoint-down(extrasmall) {
+                left: 2rem;
+            }
+        }
+    }
+}
+
+.imggallery {
+    padding-top: 4rem;
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 0.7rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__img--three {
+        grid-column: 1/3;
+        grid-row: 2/4;
+    }
+    &__img--four {
+        grid-column: 3/5;
+        grid-row: 1/3;
+    }
+}
+.photographiegrid {
+    padding-top: 4rem;
+    &__container {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 2rem;
+
+        @include breakpoint-down(extrasmall) {
+            grid-template-columns: 1fr;
+            justify-items: center;
+        }
+    }
+    &__text {
+        text-align: center;
+        align-self: center;
+
+        h1 {
+            padding-bottom: 1rem;
+        }
+        p {
+            text-align: center;
+            padding-bottom: 2rem;
+        }
+        a {
+            @include breakpoint-down(extrasmall) {
+                display: none;
+            }
+        }
+    }
+    &__img {
+        @include breakpoint-down(mobile) {
+            width: 100%;
+        }
+    }
+    // &__img {
+    //     width: 100%;
+    // }
+
+    .photographiegrid3__img,
+    .photographiegrid4__img {
+        width: 100%;
+    }
+    .photographiegrid4__img {
+        @include breakpoint-down(extrasmall) {
+            display: none;
+        }
+    }
+    &__link {
+        display: none;
+        @include breakpoint-down(extrasmall) {
+            display: inline-block;
+        }
+    }
+}
+
+.captureimage {
+    padding-top: 4rem;
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr;
+        //gap: 2rem;
+
+        h1 {
+            text-align: center;
+        }
+        img {
+            width: 100%;
+        }
+    }
+}
+.audiovisuel__paragraph {
+    font-weight: 400;
+    font-size: rem(20);
+    line-height: rem(24);
+    margin: 0;
+}
+
+.shootingsection {
+    padding-top: 4rem;
+    width: 100%;
+
+    &__content {
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/shooting.png);
+        width: 100%;
+        // height: 80vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background-position: center;
+
+        @include breakpoint-down(extrasmall) {
+            grid-template-columns: 1fr;
+        }
+    }
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: rem(200) 0;
+
+        .btn__second {
+            justify-self: center;
+        }
+    }
+    &__text {
+        display: grid;
+        gap: 0.3rem;
+
+        &--first {
+            margin: 0;
+            font-weight: 400;
+            font-size: rem(36);
+            line-height: rem(52);
+            font-family: 'Kaushan Script';
+
+            @include breakpoint-down(mobile) {
+                font-size: 2rem;
+            }
+        }
+        &--second {
+            margin: 0;
+            font-weight: 400;
+            font-size: rem(64);
+            line-height: rem(83);
+
+            @include breakpoint-down(mobile) {
+                font-size: 3rem;
+            }
+        }
+        &--third {
+            margin: 0;
+            font-weight: 300;
+            font-size: rem(32);
+            line-height: 126%;
+            letter-spacing: 0.95em;
+            text-transform: capitalize;
+            padding-left: 6.5rem;
+
+            @include breakpoint-down(mobile) {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+.description {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/geraldine.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin-top: 3rem;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: rem(100);
+        padding-top: rem(100);
+
+        h2 {
+            font-weight: 800;
+            font-size: rem(32);
+            line-height: rem(36);
+            text-align: justify;
+            text-transform: uppercase;
+            margin: 0;
+            color: var(--white);
+
+            @include breakpoint-down(tablet) {
+                text-align: center;
+            }
+            @include breakpoint-down(mobile) {
+                font-size: 1.5rem;
+                line-height: 2.3rem;
+            }
+        }
+
+        p {
+            font-weight: 300;
+            font-size: rem(18);
+            line-height: rem(30);
+            text-align: center;
+            margin: 0;
+            color: var(--white);
+            // @include breakpoint-down(tablet) {
+            //     text-align: left;
+            // }
+        }
+    }
+}
+
+.audiovisuel__title {
+    font-family: 'Kaushan Script';
+    font-style: normal;
+    font-weight: 400;
+    font-size: rem(48);
+    line-height: rem(61);
+    margin: 0;
+
+    @include breakpoint-down(mobile) {
+        font-size: 2rem;
+        line-height: initial;
+    }
+}
+.audiovisuel__subtitle {
+    //font-family: 'Kaushan Script';
+    font-style: normal;
+    font-weight: 700;
+    font-size: rem(32);
+    line-height: rem(38);
+    margin: 0;
+}
+.btn__second {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--white);
+    border-radius: rem(8);
+    padding: rem(9) rem(26);
+    font-weight: 400;
+    font-size: rem(14);
+    line-height: rem(17);
+}
+.btn__second:hover {
+    background-color: #237dbe;
+}
+.btn__second--blue {
+    background: var(--blue);
+}
+
+.imggallery2 {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    @include breakpoint-down(extrasmall) {
+        padding-top: 0;
+    }
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+
+    &__img--one {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    &__img--two {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    &__img--three {
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    &__img--four {
+        grid-column-start: 5;
+        grid-column-end: 6;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+    &__img--five {
+        grid-column-start: 6;
+        grid-column-end: 8;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    &__img--six {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+    &__img--sept {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+    &__img--huit {
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row-start: 2;
+        grid-row-end: 4;
+    }
+    &__img--neuf {
+        grid-column-start: 5;
+        grid-column-end: 6;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+    &__img--quatorze {
+        grid-row: 3/5;
+        grid-column: 3/4;
+    }
+    &__img--dixsept {
+        grid-column: 6/8;
+        grid-row: 3/5;
+    }
+    &__img--seize {
+        grid-column: 4/6;
+    }
+    &__img--quinze {
+        grid-column: 1/3;
+    }
+
+    // &__img--five {
+    //     grid-column: span 2;
+    // }
+}

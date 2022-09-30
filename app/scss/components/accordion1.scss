@@ -1,0 +1,67 @@
+@use '../util' as *;
+
+.section_accordion{
+    display: none;
+    @include breakpoint-down(xmedium){
+        display: none;
+    }
+    @include breakpoint-down(small){
+        display: block;
+    }
+    .accordion {
+        background-color: var(--white);
+        color: var(--grayLight);
+        cursor: pointer;
+        padding: rem(18);
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid var(--black);
+        text-align: left;
+        outline: none;
+        font-size: rem(16);
+        transition: all 0.7s ease-in-out;
+        &:hover {
+            color: var(--blue);
+            background-color: var(--white); 
+            font-weight: bold;
+            transition: all .7s ease-in-out;
+        }
+      }
+      .panel {
+        padding: 0 rem(18);
+        display: none;
+        background-color: var(--white);
+        overflow: hidden;
+        .title{
+            padding-top: rem(30);
+            line-height: rem(25);
+            font-size: rem(30);
+            font-weight: bold;
+            color: var(--blue);
+            @include breakpoint-down(xmedium){
+            padding-top: rem(0);
+            font-size: rem(13);
+            }
+        }
+        p{
+            text-align: justify;
+            line-height: rem(30);
+        }
+    }
+      .active{
+        transition: all 0.7s ease-in-out;
+        background-color: var(--white); 
+        font-weight: bold;
+        border-bottom: none;
+    }
+}
+    .Mobile1{
+        @include breakpoint-down(xmedium){
+            display: block;    
+        }
+    }
+    .Mobile{
+        @include breakpoint-down(xmedium){
+            padding: rem(39) 0;
+        }
+    }

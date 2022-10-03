@@ -23,7 +23,6 @@
         }
         
         h1{
-            font-size: rem(32);
             align-self: center;
             margin-bottom: 0;
         }
@@ -84,9 +83,11 @@
             .item33 {display: flex; justify-content: center;}
             .item{
                 background-color: var(--white);
+                max-width: 100%;
                 img{
                     width: 100%;
                     height: -webkit-fill-available;
+                    max-height : 100%;
                     object-fit: cover;
                 }
             }
@@ -136,11 +137,13 @@
                 margin-top: rem(15);
                 .img_gallery{
                     display: grid;
-                    // grid-template-columns: repeat(6, 1fr);
                     grid-template-areas: 'a b c d e f';
-                    img{
-                        width: 100%;
-                    }
+                }
+                img{
+                    width: 100%;
+                    height: -webkit-fill-available;
+                    max-height : 100%;
+                    object-fit: cover;
                 }
                 .center{
                     display: flex;
@@ -172,7 +175,6 @@
     
     #Photographie:checked ~ .portfoliobarre__elts_list .design,
     #video:checked ~ .portfoliobarre__elts_list .design {display: none;}
-    
 }
 .reveal-visible{
     display: block;

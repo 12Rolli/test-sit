@@ -2,23 +2,87 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 .audiovisuelslider {
-    height: 95vh;
+    height: 90vh;
     width: 100%;
     position: relative;
-
+    @include breakpoint-down(tablet) {
+        height: 60vh;
+    }
     &__img {
         object-fit: cover;
-        height: 100%;
+        height: 90vh;
         width: 100%;
         position: absolute;
         top: 0;
         left: 0;
         opacity: 0;
         transition: opacity 0.5s;
+
+        @include breakpoint-down(tablet) {
+            height: 60vh;
+        }
+    }
+    &__text {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--white);
+        font-weight: 700;
+        font-size: rem(13);
+        letter-spacing: 0.29rem;
+        text-align: center;
+        @include breakpoint-down(mobile) {
+            letter-spacing: normal;
+        }
     }
 
     &__img.shown {
         opacity: 1;
+    }
+    &__img1 {
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1663843628/dx/images/Sites/photo/audioslide1.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1663843629/dx/images/Sites/photo/audioslide1mobile.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+    &__img2 {
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1663843628/dx/images/Sites/photo/audioslide2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1663843633/dx/images/Sites/photo/audioslide2mobile.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+    &__img3 {
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1663843628/dx/images/Sites/photo/audioslide3.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+        @include breakpoint-down(mobile) {
+            background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1663843643/dx/images/Sites/photo/audioslide3mobile.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     }
 
     &__manualbtn {
@@ -26,6 +90,7 @@
         top: 50%;
         transform: translateY(-50%);
         cursor: pointer;
+        background-color: transparent;
 
         @include breakpoint-down(mobile) {
             display: none;
@@ -60,20 +125,51 @@
             height: 100%;
         }
     }
+    &__img--one {
+        @include breakpoint-down(tablet) {
+            grid-column: 1/3;
+        }
+    }
+    &__img--two {
+        @include breakpoint-down(tablet) {
+            grid-column: 3/5;
+            grid-row: 1/2;
+        }
+    }
     &__img--three {
         grid-column: 1/3;
         grid-row: 2/4;
+        @include breakpoint-down(tablet) {
+            grid-column: 1/5;
+            grid-row: 2/3;
+        }
     }
     &__img--four {
         grid-column: 3/5;
         grid-row: 1/3;
+        @include breakpoint-down(tablet) {
+            grid-column: 1/5;
+            grid-row: 4/5;
+        }
+    }
+    &__img--five {
+        @include breakpoint-down(tablet) {
+            grid-column: 1/3;
+            grid-row: 3/4;
+        }
+    }
+    &__img--six {
+        @include breakpoint-down(tablet) {
+            grid-column: 3/5;
+            grid-row: 3/4;
+        }
     }
 }
 .photographiegrid {
     padding-top: 4rem;
     &__container {
         display: grid;
-        grid-template-columns: 1.5fr 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 2rem;
 
         @include breakpoint-down(extrasmall) {
@@ -99,7 +195,7 @@
         }
     }
     &__img {
-        @include breakpoint-down(mobile) {
+        @include breakpoint-down(xsmall) {
             width: 100%;
         }
     }
@@ -123,7 +219,14 @@
         }
     }
 }
+.photographiegrid1 {
+    grid-template-columns: 1.5fr 1fr;
 
+    @include breakpoint-down(extrasmall) {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
 .captureimage {
     padding-top: 4rem;
 
@@ -142,25 +245,28 @@
 }
 .audiovisuel__paragraph {
     font-weight: 400;
-    font-size: rem(20);
+    font-size: rem(18);
     line-height: rem(24);
     margin: 0;
+
+    @include breakpoint-down(mobile) {
+        font-size: rem(14);
+        line-height: rem(17);
+    }
 }
 
 .shootingsection {
-    padding-top: 4rem;
+    margin-top: 4rem;
     width: 100%;
-
+    background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1666711979/dx/images/Sites/photo/blocshooting.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     &__content {
-        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/shooting.png);
         width: 100%;
         // height: 80vh;
-        background-repeat: no-repeat;
-        background-size: cover;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        background-position: center;
-
         @include breakpoint-down(extrasmall) {
             grid-template-columns: 1fr;
         }
@@ -169,7 +275,8 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 2rem;
-        padding: rem(200) 0;
+        padding-top: rem(200);
+        padding-bottom: rem(200);
 
         .btn__second {
             justify-self: center;
@@ -211,6 +318,7 @@
 
             @include breakpoint-down(mobile) {
                 font-size: 1.5rem;
+                padding-left: 3.5rem;
             }
         }
     }
@@ -218,11 +326,26 @@
 
 .description {
     background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-        url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/geraldine.png);
+        url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1666770848/dx/images/Sites/photo/photo.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
     margin-top: 3rem;
+
+    @include breakpoint-down(tablet) {
+        background-image: linear-gradient(
+                rgba(0, 0, 0, 0.75),
+                rgba(0, 0, 0, 0.75)
+            ),
+            url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1666779342/dx/images/Sites/photo/blocbeautetablet.png);
+    }
+    @include breakpoint-down(mobile) {
+        background-image: linear-gradient(
+                rgba(0, 0, 0, 0.75),
+                rgba(0, 0, 0, 0.75)
+            ),
+            url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1666779634/dx/images/Sites/photo/blocbeautemobile.png);
+    }
 
     &__content {
         display: flex;
@@ -261,6 +384,11 @@
             // @include breakpoint-down(tablet) {
             //     text-align: left;
             // }
+
+            @include breakpoint-down(mobile) {
+                font-size: rem(14);
+                line-height: rem(17);
+            }
         }
     }
 }
@@ -312,6 +440,16 @@
     &__container {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
+        width: 100%;
+        height: 90vh;
+        @include breakpoint-down(tablet) {
+            height: 60vh;
+        }
+        @include breakpoint-down(mobile) {
+            // grid-template-columns: repeat(6, 1fr);
+            // height: 50vh;
+            display: none;
+        }
 
         img {
             width: 100%;
@@ -325,71 +463,429 @@
         grid-column-end: 2;
         grid-row-start: 1;
         grid-row-end: 2;
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid21.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            grid-column-start: initial;
+            grid-column-end: initial;
+            grid-row-start: initial;
+            grid-row-end: initial;
+        }
     }
     &__img--two {
         grid-column-start: 2;
         grid-column-end: 4;
         grid-row-start: 1;
         grid-row-end: 2;
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid22.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            grid-column-start: initial;
+            grid-column-end: initial;
+            grid-row-start: initial;
+            grid-row-end: initial;
+        }
     }
     &__img--three {
         grid-column-start: 4;
         grid-column-end: 5;
         grid-row-start: 1;
         grid-row-end: 2;
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid23.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            grid-column-start: initial;
+            grid-column-end: initial;
+            grid-row-start: initial;
+            grid-row-end: initial;
+        }
     }
     &__img--four {
         grid-column-start: 5;
         grid-column-end: 6;
         grid-row-start: 1;
         grid-row-end: 3;
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid24.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            grid-column-start: initial;
+            grid-column-end: initial;
+            grid-row-start: initial;
+            grid-row-end: initial;
+        }
     }
     &__img--five {
         grid-column-start: 6;
         grid-column-end: 8;
         grid-row-start: 1;
         grid-row-end: 2;
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid25.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            grid-column-start: initial;
+            grid-column-end: initial;
+            grid-row-start: initial;
+            grid-row-end: initial;
+        }
     }
     &__img--six {
         grid-column-start: 1;
         grid-column-end: 3;
         grid-row-start: 2;
         grid-row-end: 3;
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid26.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            grid-column-start: initial;
+            grid-column-end: initial;
+            grid-row-start: initial;
+            grid-row-end: initial;
+        }
     }
     &__img--sept {
         grid-column-start: 3;
         grid-column-end: 4;
         grid-row-start: 2;
         grid-row-end: 3;
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid27.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            grid-column-start: initial;
+            grid-column-end: initial;
+            grid-row-start: initial;
+            grid-row-end: initial;
+        }
     }
     &__img--huit {
         grid-column-start: 4;
         grid-column-end: 5;
         grid-row-start: 2;
         grid-row-end: 4;
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid28.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            grid-column-start: initial;
+            grid-column-end: initial;
+            grid-row-start: initial;
+            grid-row-end: initial;
+        }
     }
     &__img--neuf {
         grid-column-start: 5;
         grid-column-end: 6;
         grid-row-start: 3;
         grid-row-end: 4;
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid29.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            grid-column-start: initial;
+            grid-column-end: initial;
+            grid-row-start: initial;
+            grid-row-end: initial;
+        }
+    }
+    &__img--dix {
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid2-10.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+    }
+    &__img--onze {
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid2-11.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+    }
+    &__img--douze {
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1666777687/dx/images/Sites/photo/grid2-12.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+    }
+    &__img--treize {
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1666777688/dx/images/Sites/photo/grid2-13.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
     }
     &__img--quatorze {
         grid-row: 3/5;
         grid-column: 3/4;
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid2-14.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            grid-column-start: initial;
+            grid-column-end: initial;
+            grid-row-start: initial;
+            grid-row-end: initial;
+        }
     }
     &__img--dixsept {
         grid-column: 6/8;
         grid-row: 3/5;
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid2-17.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            grid-column-start: initial;
+            grid-column-end: initial;
+            grid-row-start: initial;
+            grid-row-end: initial;
+        }
     }
     &__img--seize {
         grid-column: 4/6;
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid2-16.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            grid-column-start: initial;
+            grid-column-end: initial;
+            grid-row-start: initial;
+            grid-row-end: initial;
+        }
     }
     &__img--quinze {
         grid-column: 1/3;
+
+        background: url(https://res.cloudinary.com/digital-x-sarl/image/upload/v1662892055/dx/images/Sites/photo/grid2-15.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include breakpoint-down(tablet) {
+            background-position: center;
+        }
+
+        @include breakpoint-down(mobile) {
+            grid-column-start: initial;
+            grid-column-end: initial;
+            grid-row-start: initial;
+            grid-row-end: initial;
+        }
     }
 
     // &__img--five {
     //     grid-column: span 2;
     // }
+}
+
+.imagegallery2b__container {
+    display: none;
+
+    @include breakpoint-down(mobile) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+    }
+
+    img {
+        width: 100%;
+    }
+    .imggallery2b__img--six {
+        grid-column: 1/3;
+        grid-row: 1/2;
+    }
+    .imggallery2b__img--two {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    .imggallery2b__img--three {
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+    .imggallery2b__img--dixsept {
+        grid-column: 1/3;
+        grid-row: 3/4;
+    }
+    .imggallery2b__img--one {
+        grid-column: 1/2;
+        grid-row: 4/5;
+    }
+    .imggallery2b__img--dix {
+        grid-column: 2/3;
+        grid-row: 4/5;
+    }
+    .imggallery2b__img--five {
+        grid-column: 1/3;
+        grid-row: 5/6;
+    }
+    .imggallery2b__img--huit {
+        grid-column: 1/3;
+        grid-row: 6/7;
+    }
+}
+
+.composition {
+    position: relative;
+    text-align: center;
+    margin-bottom: 2rem;
+    //overflow: hidden;
+    &__photo {
+        width: 55%;
+        border-radius: 2px;
+        position: absolute;
+        z-index: 10;
+        transition: all 1s ease-in-out;
+        
+        &--p1 {
+            left: 2rem;
+            top: -2rem;
+            
+            @include breakpoint-down(extrasmall){
+                left: 0;
+                width: 28%;
+                top: -3rem;
+            }
+            @include breakpoint-down(mobile){
+                top: -1rem;
+            }
+           
+        }
+        &--p2 {
+            right: 0;
+            top: -3rem;
+            width: 50%;
+          
+            @include breakpoint-down(extrasmall){
+                width: 25%;
+                top: -4rem;
+            }
+            @include breakpoint-down(mobile){
+                top: -2rem;
+            }
+        }
+        &--p3 {
+            left: 25%;
+            top: 1rem;
+          
+            @include breakpoint-down(extrasmall){
+                width: 25%;
+                left: 40%;
+                top: -4rem;
+            }
+            @include breakpoint-down(mobile){
+                top: -2rem;
+            }
+        }
+    }
+    &:hover {
+        // transform: translate(1);
+        // box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+        transform: scale(1) translateY(-0.5rem);
+        @include breakpoint-down(extrasmall){
+            transform:scale(0) translateY(0); ;
+         }
+        .composition__photo--p1 {
+            left: 0;
+            top: -1rem;
+
+            @include breakpoint-down(extrasmall){
+               left: initial;
+               top: initial;
+            }
+           
+        }
+        .composition__photo--p2 {
+            left: 50%;
+            top: -2rem;
+            @include breakpoint-down(extrasmall){
+                left: initial;
+                top: initial;
+             }
+          
+        }
+        .composition__photo--p3 {
+            left: 6rem;
+            top: 1rem;
+            @include breakpoint-down(extrasmall){
+                left: initial;
+                top: initial;
+             }
+            
+        }
+    }
+}
+.no-center{
+    justify-items: normal;
+}
+.center{
+    justify-self: center;
 }

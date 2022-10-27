@@ -57,7 +57,7 @@
 
         img {
             width: 100%;
-            //height: 100%;
+            height: 100%;
         }
     }
     &__img--three {
@@ -316,8 +316,7 @@
         img {
             width: 100%;
             object-fit: cover;
-            //height: 100%;
-             height: -webkit-fill-available;
+            height: 100%;
         }
     }
 

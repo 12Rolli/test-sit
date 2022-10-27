@@ -3,108 +3,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 
 .portfolio{
-    .portfoliogrid{
-        background: url('https://res.cloudinary.com/digital-x-sarl/image/upload/v1663931936/dx/images/Sites/portfolio/BG.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        padding: 0;
-        @include breakpoint-down(extralarge){
-            background-size: cover;
-        }
-        @include breakpoint-down(xmedium){
-            background: url('https://res.cloudinary.com/digital-x-sarl/image/upload/v1664529706/dx/images/Sites/portfolio/bgTablet.png');
-            // background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        @include breakpoint-down(mobile){
-            opacity: 1;
-            background: url('https://res.cloudinary.com/digital-x-sarl/image/upload/v1664529249/dx/images/Sites/portfolio/bgMobile.png');
-        }
-        
-        h1{
-            align-self: center;
-            margin-bottom: 0;
-        }
-        .grid-container {
-            display: grid;
-            transition: all 1s ease-out;
-            
-            //ligne 1
-            .item1 { grid-area: 1/1/span 2/span 2;}
-            .item2 { grid-area: 1/3/span 2/span 10;}
-            .item3 { grid-area: 1/13/span 1/span 6;}
-            .item4 { grid-area: 1/19/span 1/span 2;}
-            .item5 { grid-area: 1/21/span 1/span 6;}
-            .item6 { grid-area: 1/27/span 1/span 10;}
-            .item7 { grid-area: 1/37/span 1/span 2;}
-            .item46 { grid-area: 1/40/span 1/span 2;}
-            .item27 { grid-area: 1/7/span 1/span 5;}
-            .item26 { grid-area: 1/1/span 1/span 6;}
-            
-            //ligne 2
-            .item10 { grid-area: 2/13/span 2/span 5;display: grid;}
-            .item12 { grid-area: 2/18/span 1/span 2;display: grid;}
-            .item13 { grid-area: 2/20/span 1/span 5;}
-            .item14 { grid-area: 2/25/span 2/span 5;}
-            .item15 { grid-area: 2/30/span 1/span 6;}
-            .item16 { grid-area: 2/36/span 1/span 7;}
-            .item28 { grid-area: 2/8/span 1/span 4;}
-            .item29 { grid-area: 2/1/span 1/span 7;}
-    
-            // //ligne 3
-            .item8 { grid-area: 3/1/span 1/span 8;}
-            .item9 { grid-area: 3/9/span 1/span 4;}
-            .item33 { grid-area: 3/18/span 1/span 7;}
-            // .item33 { grid-area: 3/21/span 1/span 5;}
-            .item17 { grid-area: 3/30/span 1/span 7;}
-            .item18 { grid-area: 3/37/span 1/span 5;}
-    
-            // //ligne 4
-            .item19 { grid-area: 4/1/span 1/span 3;}
-            .item20{ grid-area: 4/4/span 1/span 3;}
-            .item21 { grid-area: 4/7/span 1/span 3;}
-            .item22 { grid-area: 4/10/span 1/span 3;}
-            .item23 { grid-area: 4/13/span 1/span 5;}
-            .item24 { grid-area: 4/18/span 3/span 3;}
-            // .item24 { grid-area: 3/18/span 3/span 5;}
-            .item25 { grid-area: 4/21/span 2/span 10;display: grid;}
-            .item32 { grid-area: 4/31/span 1/span 2;}
-            .item39 { grid-area: 4/33/span 1/span 3;}
-            .item40 { grid-area: 4/38/span 1/span 4;}
-            .item34 { grid-area: 4/36/span 1/span 2;}
-            
-            //ligne 5
-            .item41 { grid-area: 5/1/span 1/span 8;}
-            .item42 { grid-area: 5/9/span 1/span 4;}
-            .item43 { grid-area: 5/13/span 1/span 5;}
-            .item44 { grid-area: 5/31/span 1/span 6;}
-            .item45 { grid-area: 5/37/span 1/span 6;}
-            .item33 {display: flex; justify-content: center;}
-            .item{
-                background-color: var(--white);
-                max-width: 100%;
-                img{
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-        }
-    }
     
     .portfoliobarre{
-        z-index: 99;    
-        position: relative;
-        opacity: 0;
-        @include breakpoint-down(mobile){
-            opacity: 1;
-        }
         &__elts{
-            // opacity: 0;
             display: grid;
             grid-template-columns: 1fr;
             gap: rem(12);
+            &_container{
+                .image{
+                    display: none;
+                    img{
+                        width: 100%;    
+                        height: 100%;
+                    }
+                }
+            }
             &_barre{
                 display: flex;
                 background-color: var(--blue);
@@ -131,6 +44,7 @@
                 }
             }
             &_list{
+                // position: relative;
                 .image{
                 display: none;
                 margin-top: rem(15);
@@ -141,6 +55,78 @@
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
+                    }
+                }
+                #fullImageViews{
+                    display: none;
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                    height: 100vh;
+                    background-color: var(--darkLight);
+                    text-align: center;
+                    .fullImages{
+                        #fullImages{
+                            padding: rem(24);
+                            height: 50vh;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                        #CloseButons{
+                            position: absolute;
+                            top: 10%;
+                            right: rem(12);
+                            font-size: 2rem;
+                            color: var(--colorBlue);
+                            cursor: pointer;
+                            @include breakpoint-down(small){
+                                top: 23%;
+                            }
+                            @include breakpoint-down(tablet){
+                                right: rem(30);
+                                top: 17%;
+                            }
+                        }
+                    }
+                }
+                #fullImageView{
+                    display: none;
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                    height: 100vh;
+                    background-color: var(--darkLight);
+                    text-align: center;
+                    .fullImage{
+                        #fullImage{
+                            padding: rem(24);
+                            height: 50vh;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                        #CloseButon{
+                            position: absolute;
+                            top: 10%;
+                            right: rem(12);
+                            font-size: 2rem;
+                            color: var(--colorBlue);
+                            cursor: pointer;
+                            @include breakpoint-down(small){
+                                top: 23%;
+                            }
+                            @include breakpoint-down(tablet){
+                                right: rem(30);
+                                top: 17%;
+                            }
+                        }
                     }
                 }
                 
@@ -163,35 +149,21 @@
                     }
                 }
             }
-            input {
-                display: none;
-            }
         }
     }
     #Photographie:checked ~ .portfoliobarre__elts_list .Photographie,
     #video:checked ~ .portfoliobarre__elts_list .video,
     #design:checked ~ .portfoliobarre__elts_list .design{display: block;}
-    
     #Photographie:checked ~ .portfoliobarre__elts_list .design,
     #video:checked ~ .portfoliobarre__elts_list .design {display: none;}
+
+    #Photographie:checked ~ .portfoliobarre__elts_container .Photographie,
+    #video:checked ~ .portfoliobarre__elts_container .video,
+    #design:checked ~ .portfoliobarre__elts_container .design{display: block;}
+
+    #Photographie:checked ~ .portfoliobarre__elts_container .design,
+    #video:checked ~ .portfoliobarre__elts_container .design {display: none;}
 }
-.reveal-visible{
-    display: block;
-    opacity: 1 !important;
-    height: auto;
-    transition: all 1.5s ease-out;
-    @include breakpoint-down(xmedium){
-        opacity: 1;
-    }
-}
-.revealy{
-    opacity: 0;
-    transform: translateY(-40px);
-    height: 38vh;
-    transition: all 1.5s ease-out;
-    @include breakpoint-down(xmedium){
-        opacity: 1;
-        transform: none;
-        height: auto;
-    }
+input {
+    display: none;
 }

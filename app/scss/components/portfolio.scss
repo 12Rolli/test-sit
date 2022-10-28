@@ -9,6 +9,9 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: rem(12);
+            input {
+                display: none;
+            }
             &_container{
                 .image{
                     display: none;
@@ -87,6 +90,9 @@
                             @include breakpoint-down(small){
                                 top: 23%;
                             }
+                            @include breakpoint-down(xsmall){
+                                top: 32%;
+                            }
                             @include breakpoint-down(tablet){
                                 right: rem(30);
                                 top: 17%;
@@ -164,7 +170,5 @@
 
     #Photographie:checked ~ .portfoliobarre__elts_container .design,
     #video:checked ~ .portfoliobarre__elts_container .design {display: none;}
-}
-input {
-    display: none;
+    
 }
